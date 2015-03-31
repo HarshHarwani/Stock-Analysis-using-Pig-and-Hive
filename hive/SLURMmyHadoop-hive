@@ -71,7 +71,7 @@ $HADOOP_HOME/bin/hdfs --config $HADOOP_CONF_DIR dfs -put $1/*.csv /data
 $HIVE_HOME/bin/hive -e "set hive.map.aggr=false;"
 begin=$(date +"%s");
 $HIVE_HOME/bin/hive -f hive.sql
-$HIVE_HOME/bin/hive -e "select stock_name, Variance from stock_temp_8 where min_rank <= 10 or max_rank<=10 order by Variance;" > test.out
+$HIVE_HOME/bin/hive -e "select stock_name, Variance from stock_temp_6 where min_rank <= 10 or max_rank<=10 order by Variance;" > test.out
 termin=$(date +"%s")
 difftimelps=$(($termin-$begin))
 echo "$(($difftimelps / 60)) minutes and $(($difftimelps % 60)) seconds elapsed for Script Execution."
